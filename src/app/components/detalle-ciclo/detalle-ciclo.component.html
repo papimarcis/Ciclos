@@ -1,0 +1,39 @@
+<div class="row container">
+    
+    <div class="col-3">
+        
+        <div>
+            <img [src]="imagen" alt="">
+            <h2 class="text-center"> 
+                {{nombre}} {{ciclo}}
+            </h2>
+            <h4>Conocimientos necesarios</h4>
+            <ul >
+                <ng-container *ngFor="let item of conocimientos">
+                    <li *ngFor="let items of item">{{items.nombre}}</li>
+                </ng-container>
+            </ul>
+        </div>
+        
+    </div>
+    <div class="col-9">
+        <h3 class="mb-4">Las asignaturas del ciclo son:</h3>
+        <div class="row">
+            <div class="col" *ngFor="let item of asignaturas">
+                <div class="card mb-4" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{item.nombre.toUpperCase()}}</h5>
+                        <p> Profesor: {{item.profesor}} </p>
+                        <p> Ciclo: {{item.ciclo}} </p>
+                        <p> Curso: {{item.curso}} </p>
+                        <div class="row">
+                            <img [src]="items.imagen" class="col-3 img-thumbnail" *ngFor="let items of item.conocimientos">
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>

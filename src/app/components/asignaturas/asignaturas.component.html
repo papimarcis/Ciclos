@@ -1,0 +1,38 @@
+<div class="row mb-3 mt-2" >
+
+    <div class="col">
+        <p class="text-center">Filtrar por nombre:</p>
+        <input type="text" class="form-control" placeholder="introduce el nombre de la asignatura" #inputNombre>
+    </div>
+    <div class="col">
+        <p class="text-center">Filtrar por ciclo:</p>
+        <input type="text" class="form-control" placeholder="Selecciona un ciclo" #inputCurso>
+    </div>
+    <div class="col">
+        <p class="text-center">Filtrar por conocimiento:</p>
+        <input type="text" class="form-control" placeholder="Selecciona un conocimiento" #inputCon>
+    </div>
+    
+</div>
+<div class="row mb-3">
+    <button class="btn btn-primary mb-4" (click)="filtrarTodo(inputNombre.value,inputCurso.value,inputCon.value)" >
+        Filtrar
+    </button>
+    <h2>Los resultados de búsqueda son:</h2>
+
+</div>
+<div class="alert alert-primary" role="alert">
+    El número de asignaturas que cumplen el filtro es de: {{contador}}
+</div>
+<div class="row ">
+    <div class="col" *ngFor="let item of asignaturas">
+        <div class="card-body">
+            <h5 class="card-title">{{item.nombre.toUpperCase()}}</h5>
+            <p> Profesor: {{item.profesor}} </p>
+            <p> Ciclo: {{item.ciclo}} </p>
+            <p> Curso: {{item.curso}} </p>
+            <div class="row">
+                <img [src]="items.imagen" class="col-3 img-thumbnail" *ngFor="let items of item.conocimientos">
+            </div>  
+    </div>
+</div>

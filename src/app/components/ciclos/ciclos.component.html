@@ -1,0 +1,41 @@
+<h1>Los ciclos tecnológicos son</h1>
+<div class="row">
+    <div class="col-6">
+        <h1>DAM</h1>
+        <p>Asignaturas:</p>
+        <ul class="list-group" *ngFor="let item of asignaturasDam">
+            <li class="list-group-item"> {{ item.nombre }} </li>
+          </ul>
+          <br>
+        <div class="row">
+            <div class="col" *ngFor="let item of ciclosDam">
+                <div class="card" style="width: 18rem;">
+                    <img [src]="item.imagen" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">{{item.curso}} {{item.nombre}}</h5>
+                      <a (click)="detalles(item.nombre, item.curso, item.imagen)" class="btn btn-primary">Ver detalle</a>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+        <h1>DAW</h1>
+        <p>Asignaturas:</p>
+        <ul class="list-group" *ngFor="let item of asignaturasDaw">
+            <li class="list-group-item"> {{ item.nombre }} </li>
+          </ul>
+          <br><br><br>
+          <div class="row">
+            <div class="col" *ngFor="let item of ciclosDaw">
+                <div class="card" style="width: 18rem;">
+                    <img [src]="item.imagen" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">{{item.curso}} {{item.nombre}}</h5>
+                      <a (click)="detalles(item.nombre, item.curso, item.imagen)" class="btn btn-primary">Ver detalle</a>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
